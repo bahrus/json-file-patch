@@ -1,0 +1,13 @@
+{
+    "tags": [
+        {
+            "name": "p-d-r",
+            "attributes": [
+                {
+                    "name": "with-path",
+                    "test": "hello"
+                }
+            ]
+        }
+    ]
+}
