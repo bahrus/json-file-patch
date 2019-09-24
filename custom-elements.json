@@ -10,8 +10,7 @@
           "name": "with-path",
           "description": "object inside a new empty object, with key equal to this value.\r\nE.g. if the incoming object is {foo: 'hello', bar: 'world'}\r\nand with-path = 'myPath'\r\nthen the source object which be merged into is:\r\n{myPath: {foo: 'hello', bar: 'world'}}",
           "jsDoc": "/**\r\n        * object inside a new empty object, with key equal to this value.\r\n        * E.g. if the incoming object is {foo: 'hello', bar: 'world'}\r\n        * and with-path = 'myPath'\r\n        * then the source object which be merged into is:\r\n        * {myPath: {foo: 'hello', bar: 'world'}}\r\n        * @attr with-path\r\n        */",
-          "type": "string",
-          "test": "hello"
+          "type": "string"
         },
         {
           "name": "on",

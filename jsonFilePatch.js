@@ -14,7 +14,7 @@ function processFile(srcFilePath, patchFilePath, key, sections){
         });
     })
 
-    fs.writeFileSync(srcFilePath, JSON.stringify(sourceObj), 'utf8');
+    fs.writeFileSync(srcFilePath, JSON.stringify(sourceObj, null, 4), 'utf8');
 }
 
 function patchSection(sourceObjTag, patchObjTag, key, section){
