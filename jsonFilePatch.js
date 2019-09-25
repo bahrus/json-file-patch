@@ -7,11 +7,15 @@ function processFile(srcFilePath, patchFilePath, key, sections){
     const patchContents = fs.readFileSync(patchFilePath);
     const patchObj = JSON.parse(patchContents);
     patchObj.tags.forEach(patchObjTag =>{
-        const sourceObjTag = sourceObj.tags.find(test => (test.name === patchObjTag.name));
-        if(!sourceObjTag) throw "tag " + sourceObjTag.name + " not found." 
-        sections.forEach( section =>{
-            patchSection(sourceObjTag, patchObjTag, key, section)
-        });
+        const names = patchObjTag.name.split(',');
+        names.forEach(name =>{
+            const sourceObjTag = sourceObj.tags.find(test => (test.name === name));
+            if(!sourceObjTag) throw "tag " + name + " not found." 
+            sections.forEach( section =>{
+                patchSection(sourceObjTag, patchObjTag, key, section)
+            });
+        })
+
     })
 
     fs.writeFileSync(srcFilePath, JSON.stringify(sourceObj, null, 4), 'utf8');
