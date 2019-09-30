@@ -6,11 +6,14 @@ function processFile(srcFilePath, patchFilePath, key, sections){
 
     const patchContents = fs.readFileSync(patchFilePath);
     const patchObj = JSON.parse(patchContents);
+    sourceObj
     patchObj.tags.forEach(patchObjTag =>{
         const names = patchObjTag.name.split(',');
         names.forEach(name =>{
             const sourceObjTag = sourceObj.tags.find(test => (test.name === name));
             if(!sourceObjTag) throw "tag " + name + " not found." 
+            sourceObjTag['selfResolvingModulePath'] = patchObjTag.selfResolvingModulePath;
+            sourceObjTag['tests'] = patchObjTag.tests;
             sections.forEach( section =>{
                 patchSection(sourceObjTag, patchObjTag, key, section)
             });
