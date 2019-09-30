@@ -12,8 +12,8 @@ function processFile(srcFilePath, patchFilePath, key, sections){
         names.forEach(name =>{
             const sourceObjTag = sourceObj.tags.find(test => (test.name === name));
             if(!sourceObjTag) throw "tag " + name + " not found." 
-            sourceObjTag['selfResolvingModulePath'] = patchObjTag.selfResolvingModulePath;
-            sourceObjTag['tests'] = patchObjTag.tests;
+            sourceObjTag.selfResolvingModulePath = patchObjTag.selfResolvingModulePath;
+            sourceObjTag.tests = patchObjTag.tests;
             sections.forEach( section =>{
                 patchSection(sourceObjTag, patchObjTag, key, section)
             });
